@@ -1,0 +1,7 @@
+SpeechRecognition  
+wikipedia 
+requests 
+pyaudio
+gtts
+keyboard
+py-cpuinfo
