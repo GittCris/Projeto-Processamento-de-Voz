@@ -25,11 +25,12 @@ def executar_comando(comando):
 
     elif "clima" in comando:
         frase = comando.replace("qual é o clima em","").replace("qual o clima em","").replace("como está o clima em","").replace("clima em","")
-        cidade = comando.replace("clima", "").replace('no').replace('na','').replace('em','').strip()
+        cidade = comando.replace("clima", "").replace('no',"").replace('na','').replace('em','').strip()
         comando_clima(cidade, log_func=log)
 
     elif any(p in comando for p in ["abrir navegador","abrir o navegador","abra o navegador"]):
         comando_abrir_navegador(log_func=log)
+
     elif "pesquisar" in comando:
         termo = comando.replace("pesquisar", "").strip()
         comando_pesquisar(termo, log_func=log)
@@ -40,12 +41,13 @@ def executar_comando(comando):
     elif "piada" in comando:
         comando_piada(log_func=log)
 
-    elif "o que você lembra" in comando:
+    elif any(p in comando for p in ["o que você lembra","o que você se lembra", "o que você tem na memória"]):
         comando_o_que_lembra(log_func=log)
+
     elif "limpar memória" in comando:
         comando_limpar_memoria(log_func=log)
 
-    elif any(p in comando for p in ["lembra que","lembra de"]):
+    elif any(p in comando for p in ["lembra que", "lembra de", "lembrar"]):
         comando_lembra_que(comando, log_func=log)
 
     elif any(p in comando for p in ["anota para mim", 'anotar','anota',]):
@@ -86,7 +88,7 @@ def executar_comando(comando):
     elif any(p in comando for p in ["quem é seu criador","quem te criou", 'criador']):
         criador(log_func=log)
 
-    elif any(p in comando for p in ["qual seu nome","como você se chama", 'qual é o seu nome']):
+    elif any(p in comando for p in ["seu nome","qual seu nome","como você se chama", 'qual é o seu nome']):
         nome_assistente(log_func=log)
 
     elif any(p in comando for p in ["bom dia","boa tarde","boa noite"]):
